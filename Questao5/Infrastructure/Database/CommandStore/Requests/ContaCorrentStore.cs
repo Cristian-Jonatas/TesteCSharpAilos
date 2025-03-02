@@ -16,7 +16,7 @@ namespace Questao5.Infrastructure.Database.CommandStore.Requests
 
         public async Task<ContaCorrente> ObterConta(string idContaCorrente)
         {
-            return await _dbConnection.QueryFirstOrDefaultAsync(
+            return await _dbConnection.QueryFirstOrDefaultAsync<ContaCorrente>(
                 "SELECT * FROM contacorrente WHERE idcontacorrente = @IdContaCorrente",
                 new { IdContaCorrente = idContaCorrente });
         }
